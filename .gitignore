@@ -1,0 +1,9 @@
+*.cmd
+*.symvers
+*.order
+*.o
+*.ko
+*.mod
+*.mod.c
+
+*.code-workspace
