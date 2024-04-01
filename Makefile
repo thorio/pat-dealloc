@@ -1,4 +1,4 @@
-obj-m += chardev_test.o
+obj-m += pat_dealloc.o
 PWD := $(CURDIR)
 
 build:
@@ -8,7 +8,7 @@ clean: unload
 	make -C /usr/src/linux M=$(PWD) clean
 
 load: build unload
-	sudo insmod chardev_test.ko
+	sudo insmod pat_dealloc.ko
 
 unload:
-	-sudo rmmod chardev_test
+	-sudo rmmod pat_dealloc
