@@ -1,0 +1,10 @@
+[package]
+name = "pat-dealloc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.4", features = ["derive"] }
+log = "0.4.21"
+nix = {version = "0.28.0", features = ["user"] }
+stderrlog = "0.6.0"

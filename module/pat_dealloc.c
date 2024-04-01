@@ -37,8 +37,8 @@ static inline int read_addr(const char __user *user_buf, resource_size_t *out) {
 }
 
 static ssize_t device_write(struct file *filp, const char __user *user_buf, size_t len, loff_t *off) {
-	// start + end address plus - separator and \0 terminator
-	if (len != ADDR_STR_SIZE * 2 + 2) return -EINVAL;
+	// start + end address plus - separator
+	if (len != ADDR_STR_SIZE * 2 + 1) return -EINVAL;
 
 	resource_size_t start;
 	resource_size_t end;
