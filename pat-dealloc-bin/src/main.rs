@@ -1,5 +1,6 @@
 use crate::cli::Command;
 use nix::unistd::Uid;
+use pat_dealloc::PatDealloc;
 use std::{io, process::exit};
 
 mod cli;
@@ -17,7 +18,7 @@ fn main() -> io::Result<()> {
 	}
 
 	match cli.command {
-		Command::Raw { start, end } => pat_dealloc::free_memtype(start, end),
+		Command::Raw { start, end } => PatDealloc::new()?.free_memtype(start, end),
 	}
 }
 
