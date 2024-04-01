@@ -1,4 +1,4 @@
-obj-m += pat_dealloc.o
+obj-m += chardev_test.o
 PWD := $(CURDIR)
 
 build:
@@ -8,7 +8,7 @@ clean: unload
 	make -C /usr/src/linux M=$(PWD) clean
 
 load: build unload
-	sudo insmod pat_dealloc.ko pat_dealloc_pci_address=01:00.0
+	sudo insmod chardev_test.ko
 
 unload:
-	-sudo rmmod pat_dealloc
+	-sudo rmmod chardev_test
