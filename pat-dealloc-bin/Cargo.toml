@@ -1,0 +1,17 @@
+[package]
+name = "pat-dealloc-bin"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "pat-dealloc"
+path = "src/main.rs"
+
+[dependencies]
+pat-dealloc = { path = "../pat-dealloc" }
+
+clap = { workspace = true, features = ["derive"] }
+log.workspace = true
+nix = { workspace = true, features = ["user"] }
+stderrlog.workspace = true
+color-eyre.workspace = true

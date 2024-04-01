@@ -1,0 +1,6 @@
+[package]
+name = "pat-dealloc"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]

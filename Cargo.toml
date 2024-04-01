@@ -1,10 +1,22 @@
-[package]
-name = "pat-dealloc"
-version = "0.1.0"
+[workspace.package]
+version = "0.0.0-dev" # patched by CI
 edition = "2021"
 
-[dependencies]
-clap = { version = "4.5.4", features = ["derive"] }
+[workspace]
+resolver = "2"
+
+members = [
+	"pat-dealloc",
+	"pat-dealloc-bin",
+]
+
+[workspace.dependencies]
+clap = "4.5.4"
+color-eyre = "0.6.3"
 log = "0.4.21"
-nix = {version = "0.28.0", features = ["user"] }
+nix = "0.28.0"
 stderrlog = "0.6.0"
+
+[profile.release]
+strip = true
+lto = true

@@ -5,6 +5,8 @@ use std::{io, process::exit};
 mod cli;
 
 fn main() -> io::Result<()> {
+	color_eyre::install().unwrap();
+
 	let cli = cli::parse();
 	init_logger(cli.debug);
 	log::debug!("{:?}", cli);
