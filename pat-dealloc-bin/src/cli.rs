@@ -29,7 +29,9 @@ pub enum Command {
 		#[arg(long, short, value_parser=hex)]
 		end: Address,
 	},
+	/// Free all PAT memtypes within a PCI devices' resources
 	Pci {
+		/// PCI address in the form 0000:00:00.0
 		#[arg(long, short)]
 		address: String,
 	},
