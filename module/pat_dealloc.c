@@ -12,7 +12,7 @@
 
 #define DEVICE_NAME "pat_dealloc"
 #define ADDR_STR_SIZE 18
-#define ADDR_STR_BASE 16
+#define ADDR_STR_RADIX 16
 
 static int device_open(struct inode *inode, struct file *file) {
 	try_module_get(THIS_MODULE);
@@ -31,7 +31,7 @@ static inline int read_addr(const char __user *user_buf, resource_size_t *out) {
 	buf[ADDR_STR_SIZE] = '\0';
 
 	if (copy_from_user(buf, user_buf, ADDR_STR_SIZE)) return -EFAULT;
-	if (kstrtoul(buf, ADDR_STR_BASE, (unsigned long*) out)) return -EINVAL;
+	if (kstrtoul(buf, ADDR_STR_RADIX, (unsigned long*) out)) return -EINVAL;
 
 	return 0;
 }

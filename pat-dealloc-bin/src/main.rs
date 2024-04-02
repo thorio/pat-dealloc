@@ -1,11 +1,12 @@
 use crate::cli::Command;
+use anyhow::Result;
 use nix::unistd::Uid;
-use pat_dealloc::PatDealloc;
-use std::{io, process::exit};
+use pat_dealloc::{Address, PatDealloc};
+use std::process::exit;
 
 mod cli;
 
-fn main() -> io::Result<()> {
+fn main() {
 	color_eyre::install().unwrap();
 
 	let cli = cli::parse();
@@ -18,8 +19,17 @@ fn main() -> io::Result<()> {
 	}
 
 	match cli.command {
-		Command::Raw { start, end } => PatDealloc::new()?.free_memtype(start, end),
-	}
+		Command::Raw { start, end } => free_memtype(start, end).unwrap(),
+		Command::Pci { address } => free_memtypes_for_pci(address).unwrap(),
+	};
+}
+
+fn free_memtypes_for_pci(address: String) -> Result<(), anyhow::Error> {
+	Ok(PatDealloc::new()?.free_memtypes_for_pci(&address)?)
+}
+
+fn free_memtype(start: Address, end: Address) -> Result<(), anyhow::Error> {
+	Ok(PatDealloc::new()?.free_memtype(start, end)?)
 }
 
 fn init_logger(debug: bool) {

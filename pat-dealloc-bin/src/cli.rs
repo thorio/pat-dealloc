@@ -1,4 +1,7 @@
 use clap::{Parser, Subcommand};
+use pat_dealloc::Address;
+
+const HEX_RADIX: u32 = 16;
 
 pub fn parse() -> Args {
 	Args::parse()
@@ -21,17 +24,21 @@ pub enum Command {
 	/// Manually free a PAT memtype by specifiying bounds
 	Raw {
 		#[arg(long, short, value_parser=hex)]
-		start: u64,
+		start: Address,
 
 		#[arg(long, short, value_parser=hex)]
-		end: u64,
+		end: Address,
+	},
+	Pci {
+		#[arg(long, short)]
+		address: String,
 	},
 }
 
-pub fn hex(mut val: &str) -> Result<u64, String> {
+pub fn hex(mut val: &str) -> Result<Address, String> {
 	if val.starts_with("0x") {
 		val = &val[2..];
 	};
 
-	u64::from_str_radix(val, 16).map_err(|e| format!("{e}"))
+	Address::from_str_radix(val, HEX_RADIX).map_err(|e| format!("{e}"))
 }
