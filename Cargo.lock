@@ -393,7 +393,7 @@ checksum = "c1b04fb49957986fdce4d6ee7a65027d55d4b6d2265e5848bbb507b58ccfdb6f"
 
 [[package]]
 name = "pat-dealloc"
-version = "0.0.0-dev"
+version = "0.1.0"
 dependencies = [
  "lazy_static",
  "regex",
@@ -402,7 +402,7 @@ dependencies = [
 
 [[package]]
 name = "pat-dealloc-bin"
-version = "0.0.0-dev"
+version = "0.1.0"
 dependencies = [
  "anyhow",
  "clap",

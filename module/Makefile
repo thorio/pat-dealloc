@@ -4,7 +4,7 @@ PWD := $(CURDIR)
 build:
 	make -C /usr/src/linux M=$(PWD) modules
 
-clean: unload
+clean:
 	make -C /usr/src/linux M=$(PWD) clean
 
 load: build unload
