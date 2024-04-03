@@ -17,22 +17,26 @@ pub struct Args {
 	/// enable debug loglevel
 	#[arg(long, global = true)]
 	pub debug: bool,
+
+	/// enable debug loglevel
+	#[arg(long, global = true)]
+	pub load: bool,
 }
 
 #[derive(Subcommand, Debug)]
 pub enum Command {
 	/// Manually free a PAT memtype by specifiying bounds
 	Raw {
-		#[arg(long, short, value_parser=hex)]
+		#[arg(long, value_parser=hex)]
 		start: Address,
 
-		#[arg(long, short, value_parser=hex)]
+		#[arg(long, value_parser=hex)]
 		end: Address,
 	},
 	/// Free all PAT memtypes within a PCI devices' resources
 	Pci {
 		/// PCI address in the form 0000:00:00.0
-		#[arg(long, short)]
+		#[arg(long)]
 		address: String,
 	},
 }

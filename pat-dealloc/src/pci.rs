@@ -23,7 +23,7 @@ pub fn get_pci_resources(address: &str) -> Result<Vec<PciResource>, PatError> {
 	fs::read_to_string(format!("/sys/bus/pci/devices/{address}/resource"))?
 		.lines()
 		.map(parse_pci_resource)
-		.collect::<Result<Vec<_>, _>>()
+		.collect()
 }
 
 fn parse_pci_resource(line: &str) -> Result<PciResource, PatError> {
