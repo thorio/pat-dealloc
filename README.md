@@ -2,6 +2,7 @@
 
 ![GitHub License](https://img.shields.io/github/license/thorio/pat-dealloc?style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/thorio/pat-dealloc?style=flat-square)
+[![AUR Version](https://img.shields.io/aur/version/pat-dealloc-dkms?style=flat-square)](https://aur.archlinux.org/packages/pat-dealloc-dkms)
 
 A kernel module and helper utility to remove PAT entries. May cause issues if used incorrectly, so proceed with caution.  
 Intended as a less dodgy workaround for this issue: https://gitlab.freedesktop.org/drm/amd/-/issues/2794
