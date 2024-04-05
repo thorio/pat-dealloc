@@ -2,7 +2,7 @@
 
 _pkgname=pat-dealloc
 pkgname=$_pkgname-dkms
-pkgver=0.1.0
+pkgver=1.0.0
 pkgrel=1
 pkgdesc="Kernel module to allow removal of x86 PAT entries from userspace"
 url="https://github.com/thorio/$_pkgname"
