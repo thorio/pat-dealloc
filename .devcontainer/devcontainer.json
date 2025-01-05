@@ -1,0 +1,9 @@
+{
+	"name": "pat-dealloc",
+	"image": "mcr.microsoft.com/devcontainers/rust:1-bookworm",
+	"customizations": {
+		"vscode": {
+			"extensions": [ "shardulm94.trailing-spaces" ]
+		}
+	}
+}
