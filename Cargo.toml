@@ -16,10 +16,10 @@ clap = "4.5.4"
 color-eyre = "0.6.3"
 lazy_static = "1.4.0"
 log = "0.4.21"
-nix = "0.28.0"
+nix = "0.29.0"
 regex = "1.10.4"
 stderrlog = "0.6.0"
-thiserror = "1.0.58"
+thiserror = "2.0.9"
 
 [profile.release]
 lto = true
